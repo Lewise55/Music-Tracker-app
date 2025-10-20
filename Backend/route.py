@@ -20,10 +20,13 @@ def handle_hello():
 
 @api.route('/signup', methods=['POST'])
 def handle_signup():
-    body = request.json
-    
+    body = request.json()
+    body_email = body['email']
+    body_username = body['user_name']
+    body_password = hashlib.sha256(body['password'].encode(utf-8)).hexdigest()
+    user = User()
 @api.route('/login', methods=['POST', 'GET'])
 def handle_login():
 
 @api.route('/profile', methods=['POST', 'GET'])
-def handle_profile():
+def handle_profile(email =  body_email, user_name = body_username, password = body_password ):
